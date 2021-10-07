@@ -1,0 +1,19 @@
+version: '2'
+
+
+services:
+    web11:
+        build:
+            context: ./servidorLogin
+            dockerfile: Dockerfile 
+        container_name: web11
+        ports:
+            - "5000:6000"
+    web12:
+        build:
+            context: ./servidorSeguro
+            dockerfile: Dockerfile
+        container_name: web12
+        ports:
+            - "5001:6000"
+   

@@ -18,7 +18,7 @@ import javax.net.ssl.TrustManagerFactory;
 
 public class URLReader {
 
-    public static void main(String[] args) {
+    public static void init() {
         try {
 
             // Create a file and a password representation

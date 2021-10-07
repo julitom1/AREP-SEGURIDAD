@@ -18,7 +18,7 @@ import javax.net.ssl.TrustManagerFactory;
 
 public class URLReader {
 
-    public static void main(String[] args) {
+    public static void init() {
         try {
 
             // Create a file and a password representation
@@ -48,11 +48,11 @@ public class URLReader {
             SSLContext.setDefault(sslContext);
 
             // We can now read this URL
-            readURL("https://localhost:5000/hello");
+            //readURL("https://localhost:5001/obtenerinfo");
 
             // This one can't be read because the Java default truststore has been 
             // changed.
-            readURL("https://www.google.com");         
+            //readURL("https://www.google.com");         
         
         } catch (KeyStoreException ex) {
             Logger.getLogger(URLReader.class.getName()).log(Level.SEVERE, null, ex);
@@ -70,8 +70,11 @@ public class URLReader {
 
     }
 
-    public static void readURL(String sitetoread) {
-        try {
+    public static String readURL(String sitetoread) {
+    	String rta = "";
+    	
+		try {
+        	
             // Crea el objeto que representa una URL2
             URL siteURL = new URL(sitetoread);
             // Crea el objeto que URLConnection
@@ -91,20 +94,26 @@ public class URLReader {
                 }
                 List<String> headerValues = entry.getValue();
                 for (String value : headerValues) {
-                    System.out.print(value);
+                    System.out.println(value);
                 }
-                System.out.println("");
+                
+                
             }
 
             System.out.println("-------message-body------");
             BufferedReader reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-
-            String inputLine = null;
+            StringBuffer response = new StringBuffer();
+            String inputLine;
             while ((inputLine = reader.readLine()) != null) {
                 System.out.println(inputLine);
+                response.append(inputLine);
+
             }
+            return response.toString();
         } catch (IOException x) {
             System.err.println(x);
         }
+        
+		return rta;
     }
 }

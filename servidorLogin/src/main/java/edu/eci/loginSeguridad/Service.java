@@ -11,10 +11,19 @@ public class Service {
 	private HashMap<String,User> usuarios;
 	static char[] HEX_CHARS = "0123456789ABCDEF".toCharArray();
 	
+	/**
+	 * Constructor y crea un usuario 
+	 */
 	public Service() {
 		usuarios= new HashMap<String,User>();
 		usuarios.put("yarit",new User("yarit",hashPassword("yaritvillalobos")));
 	}
+	
+	/**
+	 * Compara Si el usuario existe y la contrasena es la correcta 
+	 * @param logindto credenciales que se enviaron
+	 * @return si el usuario es valido o no
+	 */
 
 	public boolean comparate(LoginDto logindto) {
 		
@@ -22,6 +31,11 @@ public class Service {
 				hashPassword(logindto.getContrasena()).equals(usuarios.get(logindto.getUsuario()).getContrasena());
 	}
 	
+	/**
+	 * Vuelve en hash la clave
+	 * @param clave   es la clave que le mandan
+	 * @return vuelve la clave pero en hash
+	 */
 	private String hashPassword(String clave) {
 		MessageDigest digest;
 		String rtahash="";

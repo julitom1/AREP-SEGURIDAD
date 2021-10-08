@@ -17,6 +17,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class App {
 
 	private static Service service;
+	
+	/**
+	 * Inicio de la aplicación y contiene los endPoint
+	 * @param args args
+	 */
     public static void main(String [] args){
     	
     	secure("keystores/ecikeystore.p12", "123456", null, null);
@@ -30,7 +35,12 @@ public class App {
         
   }
 
-
+/**
+ * 
+ * @param req Lo que le llevo al servidor
+ * @param res Lo que devolvera el servidor
+ * @return Devuelve los datos del otro servidor, si es que puso las credenciales correctas 
+ */
 private static String enviarLogin(Request req, Response res) {		
 		res.type("application/json");
 		ObjectMapper mapper = new ObjectMapper();
@@ -53,7 +63,10 @@ private static String enviarLogin(Request req, Response res) {
 	}
 
 
-
+/**
+ * Mira si existe un puerto, si no devuelve el 5000
+ * @return   un puerto disponible
+ */
 private static int getPort() {
       if (System.getenv("PORT") != null) {
           return Integer.parseInt(System.getenv("PORT"));

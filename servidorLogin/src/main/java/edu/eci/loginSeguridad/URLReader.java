@@ -18,6 +18,9 @@ import javax.net.ssl.TrustManagerFactory;
 
 public class URLReader {
 
+	/**
+	 * Cambia el ssl que tiene por defecto java por el que tengo en disco
+	 */
     public static void init() {
         try {
 
@@ -69,6 +72,11 @@ public class URLReader {
         }
 
     }
+    /**
+     * 
+     * @param sitetoread url a la que se quiere entrar
+     * @return   los datos que el otro servidor envio
+     */
 
     public static String readURL(String sitetoread) {
     	String rta = "";

@@ -29,7 +29,10 @@ public class App {
         URLReader.init();
         get("/obtenerinfo",(req,res) -> obtenerInfo(req,res));
     }
-
+    
+    /**
+     * Datos del servidor
+     */
     private static void llenarCompaneros() {
 		companeros.add(new Estudiante("Juan Garcia",'M',"juan.garcia-h@mail.escuelaing.edu.co"));
 		companeros.add(new Estudiante("Juan Mina",'M',"juan.mina@mail.escuelaing.edu.co"));
@@ -60,7 +63,12 @@ public class App {
 		companeros.add(new Estudiante("Jose Perez",'M',"jose.perez-le@mail.escuelaing.edu.co"));
 		companeros.add(new Estudiante("Juan Contreras",'M',"juan.contreras-a@mail.escuelaing.edu.co"));		
 	}
-
+    /**
+     * 
+     * @param req Lo que le llevo al servidor
+     * @param res Lo que devolvera el servidor
+     * @return Devuelve los datos de los companeros de arep 2021-2
+     */
 	public static String obtenerInfo(Request req, Response res) {
 		res.type("application/json");
 		Gson gson=new Gson();
@@ -70,7 +78,10 @@ public class App {
 
 
 
-
+	/**
+	 * Mira si existe un puerto, si no devuelve el 5000
+	 * @return   un puerto disponible
+	 */
 private static int getPort() {
       if (System.getenv("PORT") != null) {
           return Integer.parseInt(System.getenv("PORT"));

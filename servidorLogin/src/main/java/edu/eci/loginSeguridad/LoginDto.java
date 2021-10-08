@@ -6,6 +6,7 @@ public class LoginDto {
 	private String contrasena;
 	
 	public LoginDto() {}
+
 	public LoginDto(String usuario, String contrasena) {
 		this.usuario = usuario;
 		this.contrasena = contrasena;

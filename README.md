@@ -81,7 +81,7 @@ El servicio "servidorLogin" esta en el contenedor julitom1/servidorloginsegurida
 
 En AWS se creo una maquina virtual se creo un archivo docker-compose.yml que descarga los contenedores de los repositorios de dockerHub, construye las respectivas imagenes y las pone a correr en los puertos indicados, el del login esta ejecutandose en el puerto 5000 y el de los datos en el puerto 5001.
 
-![](img/Captura9.PNG)
+![](img/captura9.PNG)
 
 Para finalizar se habilito el puerto 5000 unicamente
 
@@ -90,12 +90,7 @@ Para finalizar se habilito el puerto 5000 unicamente
 
 #### Contenedores ejecutandose
 
-![](imagenes/Captura7.PNG)
-
-
-#### probando puerto 45000 obtener Datos
-
-![](img/Captura12.PNG)
+![](img/Captura7.PNG)
 
 #### probando puerto 5000
 

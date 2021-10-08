@@ -44,7 +44,7 @@ private static String enviarLogin(Request req, Response res) {
 		}
 		String devolver="";
 		if(service.comparate(logindto)) {
-			devolver=URLReader.readURL("https://localhost:5001/obtenerinfo");
+			devolver=URLReader.readURL("https://3.92.208.215:5001/obtenerinfo");
 		}else {
 			System.out.println(false);
 		}
